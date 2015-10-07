@@ -8,10 +8,21 @@
         .config(MainRoutes);
 
     function MainRoutes($stateProvider, $urlRouterProvider) {
+
+        $urlRouterProvider.otherwise("/home");
+
         $stateProvider
             .state('home', {
                 url: '/home',
-                templateUrl: 'Templates/Home/Index.html'
+                templateUrl: '/Templates/Main/Home.html'
+            })
+            .state('about', {
+                url: '/about',
+                templateUrl: '/Templates/Main/About.html'
+            })
+            .state('contact', {
+                url: '/contact',
+                templateUrl: '/Templates/Main/Contact.html'
             });
     }
 })(angular);

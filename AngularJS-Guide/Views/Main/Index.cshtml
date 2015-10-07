@@ -19,16 +19,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a ui-sref="home" class="navbar-brand">Application name</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                     <li><a ui-sref="home">Home</a></li>
-                    <li><a ui-sref="home">Home</a></li>
-                    <li><a ui-sref="home">Home</a></li>
+                    <li><a ui-sref="about">About</a></li>
+                    <li><a ui-sref="contact">Contact</a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
