@@ -15,6 +15,12 @@ namespace AngularJS_Guide
             bundles.Add(new ScriptBundle("~/bundles/angularjs/core").Include(
                         "~/Scripts/AngularJS/angularjsguideapp.module.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angularjs/directives").Include(
+                        "~/Scripts/AngularJS/Directives/*.directive.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angularjs/controllers").Include(
+                        "~/Scripts/AngularJS/Controllers/*.controller.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 

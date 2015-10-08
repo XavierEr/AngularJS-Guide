@@ -8,6 +8,8 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/angularjs")
     @Scripts.Render("~/bundles/angularjs/core")
+    @Scripts.Render("~/bundles/angularjs/directives")
+    @Scripts.Render("~/bundles/angularjs/controllers")
 
 </head>
 <body>
@@ -26,6 +28,7 @@
                     <li><a ui-sref="home">Home</a></li>
                     <li><a ui-sref="about">About</a></li>
                     <li><a ui-sref="contact">Contact</a></li>
+                    <li><a ui-sref="table">Table</a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

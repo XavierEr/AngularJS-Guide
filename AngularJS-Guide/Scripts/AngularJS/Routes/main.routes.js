@@ -23,6 +23,11 @@
             .state('contact', {
                 url: '/contact',
                 templateUrl: '/Templates/Main/Contact.html'
+            })
+            .state('table', {
+                url: '/table',
+                templateUrl: '/Templates/Main/Table.html',
+                controller: 'TableController'
             });
     }
 })(angular);
