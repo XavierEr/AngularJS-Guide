@@ -9,14 +9,14 @@ namespace AngularJS_Guide
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/angularjs").Include(
-                        "~/Scripts/angular.js",
-                        "~/Scripts/angular-ui-router.js"));
+                        "~/Scripts/angular.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angularjs/core").Include(
                         "~/Scripts/AngularJS/angularjsguideapp.module.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angularjs/directives").Include(
-                        "~/Scripts/AngularJS/Directives/*.directive.js"));
+                        "~/Scripts/AngularJS/Directives/*.directive.js",
+                        "~/Scripts/angular-ui-router.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angularjs/controllers").Include(
                         "~/Scripts/AngularJS/Controllers/*.controller.js"));

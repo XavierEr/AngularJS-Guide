@@ -87,6 +87,6 @@
     }
 
     angular
-        .module('angularJSGuideApp')
+        .module('ui.dyna.table', [])
         .directive('uiDynaTable', uiDynaTable);
 })(angular);
