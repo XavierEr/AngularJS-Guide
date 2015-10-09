@@ -1,13 +1,13 @@
 ﻿(function (angular) {
     'use strict';
 
-    MainRoutes.$inject = ['$stateProvider', '$urlRouterProvider'];
+    MainRoutes.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
 
     angular
         .module('angularJSGuideApp')
         .config(MainRoutes);
 
-    function MainRoutes($stateProvider, $urlRouterProvider) {
+    function MainRoutes($locationProvider, $stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise("/home");
 
