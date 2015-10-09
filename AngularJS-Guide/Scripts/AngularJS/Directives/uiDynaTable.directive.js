@@ -36,9 +36,6 @@
             });
 
             scope.hasPreviousPage = false;
-            scope.$watch('currentPage', function (newValue, oldValue) {
-                scope.hasPreviousPage = scope.currentPage != 1;
-            });
             scope.previousPage = function () {
                 if (scope.currentPage != 1) {
                     scope.currentPage = scope.currentPage - 1;
@@ -46,18 +43,48 @@
             };
 
             scope.hasNextPage = false;
-            scope.$watch('currentPage', function (newValue, oldValue) {
-                scope.hasNextPage = scope.currentPage != scope.totalPage;
-            });
             scope.nextPage = function () {
                 if (scope.currentPage != scope.totalPage) {
                     scope.currentPage = scope.currentPage + 1;
                 }
             };
 
-            scope.getPages = function (n) {
-                return new Array(n);
+            scope.pagePagination = 5;
+            scope.pages = [];
+            scope.setPages = function () {
+                scope.pages = [];
+
+                var pageWindow = (scope.pagePagination - 1) / 2;
+
+                var start = scope.currentPage - pageWindow;
+                var end = scope.currentPage + pageWindow;
+
+                if (end < scope.pagePagination) {
+                    end = scope.pagePagination;
+                }
+
+                if (end > scope.totalPage) {
+                    end = scope.totalPage;
+                    start = scope.totalPage - scope.pagePagination + 1;
+                }
+
+                if (start < 1) {
+                    start = 1;
+                }
+
+                var totalPagePagination = end - start + 1;
+
+                for (var i = 0; i < totalPagePagination; i++) {
+                    scope.pages.push(start++);
+                }
             };
+
+            scope.$watch('currentPage', function (newValue, oldValue) {
+                scope.hasPreviousPage = scope.currentPage != 1;
+                scope.hasNextPage = scope.currentPage != scope.totalPage;
+                scope.setPages();
+            });
+
             scope.changePage = function (data) {
                 scope.currentPage = data;
             };
