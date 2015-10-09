@@ -18,6 +18,9 @@ namespace AngularJS_Guide
                         "~/Scripts/AngularJS/Directives/*.directive.js",
                         "~/Scripts/angular-ui-router.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angularjs/routes").Include(
+                        "~/Scripts/AngularJS/Routes/*.routes.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/angularjs/controllers").Include(
                         "~/Scripts/AngularJS/Controllers/*.controller.js"));
 
