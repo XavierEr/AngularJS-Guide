@@ -17,23 +17,10 @@
                     scope.tableHeaders.push(new TableHeader(key, false));
                 }
             };
-            scope.setTableHeaders(scope.data[0]);
 
             // Pagination
             scope.currentPage = 1;
-            scope.totalRecords = scope.data.length;
             scope.totalPage = 0;
-            scope.$watch('rowPerPage', function (newValue, oldValue) {
-                if (scope.rowPerPage) {
-                    if (scope.totalRecords > scope.rowPerPage) {
-                        scope.totalPage = Math.ceil(scope.totalRecords / scope.rowPerPage);
-                    } else {
-                        scope.totalPage = 0;
-                    }
-                } else {
-                    scope.rowPerPage = scope.data.length;
-                }
-            });
 
             scope.hasPreviousPage = false;
             scope.previousPage = function () {
@@ -50,7 +37,6 @@
             };
 
             scope.pagePagination = 5;
-            scope.pages = [];
             scope.setPages = function () {
                 scope.pages = [];
 
@@ -83,6 +69,7 @@
                 scope.hasPreviousPage = scope.currentPage != 1;
                 scope.hasNextPage = scope.currentPage != scope.totalPage;
                 scope.setPages();
+                scope.filterData();
             });
 
             scope.changePage = function (data) {
@@ -91,12 +78,34 @@
 
             // Table Data
             scope.filteredData = [];
-            scope.$watchGroup(['currentPage'], function (newValues, oldValues, scope) {
+
+            scope.$watchCollection('data', function (newCol, oldCol, scope) {
+                if (!scope.pagination || scope.pagination.toLowerCase() !== 'server') {
+                    scope.totalRecords = newCol.length;
+                }
+
+                if (!scope.rowPerPage) {
+                    scope.rowPerPage = scope.totalRecords;
+                }
+
+                if (scope.totalRecords > scope.rowPerPage) {
+                    scope.totalPage = Math.ceil(scope.totalRecords / scope.rowPerPage);
+                    scope.setPages();
+                } else {
+                    scope.totalPage = 0;
+                }
+
+                scope.setTableHeaders(newCol[0]); 
+
+                scope.filterData();
+            });
+
+            scope.filterData = function () {
                 var startRow = (scope.currentPage - 1) * scope.rowPerPage;
                 var endRow = startRow + scope.rowPerPage;
 
                 scope.filteredData = scope.data.slice(startRow, endRow);
-            });
+            };
         }
 
         var directive = {
@@ -106,8 +115,8 @@
             scope: {
                 data: '=',
                 rowPerPage: '=',
-                previousPage: '&',
-                nextPage: '&'
+                totalRecords: '=',
+                pagination: '='
             }
         };
 
