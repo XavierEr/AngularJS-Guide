@@ -193,8 +193,10 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\AngularJS\angularjsguideapp.module.js" />
-    <Content Include="Scripts\AngularJS\Controllers\table.controller.js" />
+    <Content Include="Scripts\AngularJS\Controllers\serverSideTable.controller.js" />
+    <Content Include="Scripts\AngularJS\Controllers\clientSideTable.controller.js" />
     <Content Include="Scripts\AngularJS\Directives\uiDynaTable.directive.js" />
+    <Content Include="Scripts\AngularJS\Routes\table.routes.js" />
     <Content Include="Scripts\AngularJS\Routes\main.routes.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -215,7 +217,8 @@
     <Content Include="Templates\Main\About.html" />
     <Content Include="Templates\Main\Contact.html" />
     <Content Include="Templates\Main\Home.html" />
-    <Content Include="Templates\Main\Table.html" />
+    <Content Include="Templates\Table\ServerSideTable.html" />
+    <Content Include="Templates\Table\ClientSideTable.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

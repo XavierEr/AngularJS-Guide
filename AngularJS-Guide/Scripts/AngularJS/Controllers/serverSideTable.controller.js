@@ -1,11 +1,11 @@
 ﻿(function (angular) {
-    TableController.$inject = ['$scope', '$http'];
+    ServerSideTableController.$inject = ['$scope', '$http'];
 
     angular
         .module('angularJSGuideApp')
-        .controller('TableController', TableController);
+        .controller('ServerSideTableController', ServerSideTableController);
 
-    function TableController($scope, $http) {
+    function ServerSideTableController($scope, $http) {
         $scope.customerInfos = [];
 
         var mockTableData = [

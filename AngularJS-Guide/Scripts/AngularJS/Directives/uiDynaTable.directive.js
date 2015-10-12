@@ -1,14 +1,14 @@
 ﻿(function (angular) {
     'use strict';
 
+    function TableHeader(name, isHidden) {
+        var self = this;
+
+        self.name = name;
+        self.isHidden = isHidden;
+    }
+
     function uiDynaTable() {
-        function TableHeader(name, isHidden) {
-            var self = this;
-
-            self.name = name;
-            self.isHidden = isHidden;
-        }
-
         function link(scope, element, attrs) {
             // Generate Table Headers
             scope.tableHeaders = [];
@@ -106,7 +106,8 @@
             scope: {
                 data: '=',
                 rowPerPage: '=',
-                pagination: '@'
+                previousPage: '&',
+                nextPage: '&'
             }
         };
 

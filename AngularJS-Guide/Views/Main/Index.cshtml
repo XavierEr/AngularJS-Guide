@@ -29,7 +29,14 @@
                     <li><a ui-sref="home">Home</a></li>
                     <li><a ui-sref="about">About</a></li>
                     <li><a ui-sref="contact">Contact</a></li>
-                    <li><a ui-sref="table">Table</a></li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutorials <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a ui-sref="clientsidetable">Client Side Table</a></li>
+                            <li><a ui-sref="serversidetable">Server Side Table</a></li>
+                            <li role="separator" class="divider"></li>
+                        </ul>
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
