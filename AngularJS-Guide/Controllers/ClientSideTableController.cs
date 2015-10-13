@@ -14,7 +14,7 @@ namespace AngularJS_Guide.Controllers
     {
         public IEnumerable<CustomerInfo> GetCustomerInfos()
         {
-            return Builder<CustomerInfo>.CreateListOfSize(10000).Build();
+            return Builder<CustomerInfo>.CreateListOfSize(100000).Build();
         }
     }
 }
