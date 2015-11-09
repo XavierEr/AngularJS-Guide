@@ -1,11 +1,13 @@
 ﻿(function (angular) {
-    ServerSideTableController.$inject = ['$scope', '$http'];
+    DemoFileUploadController.$inject = ['$scope', '$http'];
 
     angular
         .module('angularJSGuideApp')
-        .controller('FileUploadController', FileUploadController);
+        .controller('DemoFileUploadController', DemoFileUploadController);
 
-    function FileUploadController($scope, $http) {
+    function DemoFileUploadController($scope, $http) {
+        $scope.uploadPostActionUrl = 'api/FileUpload/Upload';
+        $scope.options = { url: $scope.uploadPostActionUrl };
 
     }
 })(angular);

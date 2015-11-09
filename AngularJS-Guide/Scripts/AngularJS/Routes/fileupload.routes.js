@@ -13,7 +13,7 @@
             .state('fileupload', {
                 url: '/fileupload',
                 templateUrl: '/Templates/FileUpload/FileUpload.html',
-                controller: 'FileUploadController'
+                controller: 'DemoFileUploadController'
             });;
     }
 })(angular);
