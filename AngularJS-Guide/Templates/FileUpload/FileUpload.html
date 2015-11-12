@@ -1,10 +1,15 @@
 ﻿<h2>File Upload</h2>
 
 <div ng-controller="DemoFileUploadController">
-    <form id="fileupload" action="{{uploadPostActionUrl}}" method="post" enctype="multipart/form-data" data-file-upload="options">
-        <input type="file" name="file" accept=".csv, .xls, .xlsx" ng-disabled="disabled">
+    <form id="fileupload" method="post" enctype="multipart/form-data" file-upload="options">
 
-        <button type="button" class="btn btn-primary start" data-ng-click="submit()">
+        <span class="btn btn-success fileinput-button" ng-class="{disabled: disabled}">
+            <i class="glyphicon glyphicon-plus"></i>
+            <span>Add files...</span>
+            <input type="file" name="files[]" accept=".csv, .xls, .xlsx" ng-disabled="disabled">
+        </span>
+
+        <button type="button" class="btn btn-primary start" ng-click="submit()">
             <i class="glyphicon glyphicon-upload"></i>
             <span>Start upload</span>
         </button>
