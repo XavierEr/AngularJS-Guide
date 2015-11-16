@@ -1,5 +1,7 @@
 ﻿using AngularJS_Guide.Common;
 using AngularJS_Guide.Models;
+using OfficeOpenXml;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -28,7 +30,23 @@ namespace AngularJS_Guide.Controllers
                 var extension = Path.GetExtension(filename);
                 var stream = await file.ReadAsStreamAsync();
 
-                var customerInfos = Csv.Read<CustomerInfo>(stream, Encoding.UTF8);
+                IEnumerable<CustomerInfo> customerInfos = null;
+
+                if (extension.Equals(".csv", System.StringComparison.OrdinalIgnoreCase))
+                {
+                    customerInfos = Csv.Read<CustomerInfo>(stream, Encoding.UTF8);
+                }
+
+                if (extension.Equals(".xlsx", System.StringComparison.OrdinalIgnoreCase))
+                {
+                    using (var package = new ExcelPackage(stream))
+                    {
+                        var bytes = package.ConvertToCsv();
+
+                        customerInfos = Csv.Read<CustomerInfo>(bytes, Encoding.UTF8);
+                    }
+                }
+
                 System.Threading.Thread.Sleep(2000);
                 MemoryCache.Default.SetCustomerInfos(customerInfos);
             }

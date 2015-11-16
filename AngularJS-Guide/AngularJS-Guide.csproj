@@ -185,6 +185,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\CacheExtensions.cs" />
     <Compile Include="Common\Csv.cs" />
+    <Compile Include="Common\EpplusExtensions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\MainController.cs" />
