@@ -1,11 +1,10 @@
-﻿using CsvHelper;
-using CsvHelper.Configuration;
-using System;
-using System.Collections.Generic;
+﻿using AngularJS_Guide.Common;
+using AngularJS_Guide.Models;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.Caching;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -27,16 +26,11 @@ namespace AngularJS_Guide.Controllers
             {
                 var filename = file.Headers.ContentDisposition.FileName.Trim('\"');
                 var extension = Path.GetExtension(filename);
-                var buffer = await file.ReadAsByteArrayAsync();
                 var stream = await file.ReadAsStreamAsync();
 
-                using (var streamReader = new StreamReader(stream))
-                {
-                    var csvReader = new CsvReader(streamReader);
-                    csvReader.getre
-                }
-                
-                //Do whatever you want with filename and its binaray data.
+                var customerInfos = Csv.Read<CustomerInfo>(stream, Encoding.UTF8);
+                System.Threading.Thread.Sleep(2000);
+                MemoryCache.Default.SetCustomerInfos(customerInfos);
             }
             return Ok();
         }

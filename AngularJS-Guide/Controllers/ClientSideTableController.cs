@@ -1,11 +1,9 @@
-﻿using AngularJS_Guide.Models;
-using AngularJS_Guide.ViewModels;
+﻿using AngularJS_Guide.Common;
+using AngularJS_Guide.Models;
 using FizzWare.NBuilder;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Runtime.Caching;
 using System.Web.Http;
 
 namespace AngularJS_Guide.Controllers
@@ -14,6 +12,12 @@ namespace AngularJS_Guide.Controllers
     {
         public IEnumerable<CustomerInfo> GetCustomerInfos()
         {
+            var customerInfos = MemoryCache.Default.GetCustomerInfos();
+
+            if (customerInfos.Any())
+            {
+                return customerInfos;
+            }
             return Builder<CustomerInfo>.CreateListOfSize(100000).Build();
         }
     }
