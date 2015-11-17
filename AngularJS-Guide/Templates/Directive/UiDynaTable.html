@@ -1,12 +1,12 @@
 ﻿<table class="table table-striped">
     <thead>
         <tr>
-            <th ng-repeat="tableHeader in tableHeaders" ng-hide="tableHeader.isHidden">{{tableHeader.name}}</th>
+            <th ng-repeat="tableHeader in tableHeaders" ng-hide="tableHeader.isHidden" ng-bind="tableHeader.name"></th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="data in filteredData">
-            <td ng-repeat="tableHeader in tableHeaders" ng-hide="tableHeader.isHidden">{{data[tableHeader.name]}}</td>
+            <td ng-repeat="tableHeader in tableHeaders" ng-hide="tableHeader.isHidden" ng-bind="data[tableHeader.name]"></td>
         </tr>
     </tbody>
 </table>
