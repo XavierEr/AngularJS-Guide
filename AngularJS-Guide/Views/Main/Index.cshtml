@@ -8,17 +8,11 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     @Scripts.Render("~/bundles/angularjs")
-    <script src="~/Scripts/jquery.fileupload.js"></script>
-    <script src="~/Scripts/jquery.fileupload-process.js"></script>
-    <script src="~/Scripts/jquery.fileupload-validate.js"></script>
-    <script src="~/Scripts/jquery.fileupload-angular.js"></script>
     @Scripts.Render("~/bundles/angularjs/core")
     @Scripts.Render("~/bundles/angularjs/directives")
     @Scripts.Render("~/bundles/angularjs/routes")
     @Scripts.Render("~/bundles/angularjs/controllers")
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -58,6 +52,11 @@
         </footer>
     </div>
     @Styles.Render("~/Content/jqueryupload")
+    @Scripts.Render("~/bundles/jquery-ui")
+    <script src="~/Scripts/jquery.fileupload.js"></script>
+    <script src="~/Scripts/jquery.fileupload-process.js"></script>
+    <script src="~/Scripts/jquery.fileupload-validate.js"></script>
+    <script src="~/Scripts/jquery.fileupload-angular.js"></script>
     @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>
