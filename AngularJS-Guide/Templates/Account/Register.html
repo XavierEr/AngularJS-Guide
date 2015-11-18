@@ -1,0 +1,31 @@
+﻿<h2>Register</h2>
+
+<h4>Create a new account.</h4>
+<hr />
+<div ng-controller="RegisterController">
+    <form name="registerForm" ng-submit="register()" novalidate>
+        <div class="form-group">
+            <label>Email address</label>
+            <input name="email" type="email" class="form-control" placeholder="Email" ng-model="email" ng-model-options="{ updateOn: 'blur' }" required>
+            <div ng-show="registerForm.$submitted || registerForm.email.$dirty">
+                <span ng-show="registerForm.email.$error.required">The Email field is required.</span>
+                <span ng-show="registerForm.email.$error.email">Invalid email.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input name="password" type="password" class="form-control" placeholder="Password" ng-model="password" ng-model-options="{ updateOn: 'blur' }" required>
+            <div ng-show="registerForm.$submitted || registerForm.password.$dirty">
+                <span ng-show="registerForm.password.$error.required">The Password field is required.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input name="confirmPassword" type="password" class="form-control" placeholder="Confirm Password" ng-model="confirmPassword" ng-model-options="{ updateOn: 'blur' }" required>
+            <div ng-show="registerForm.$submitted || registerForm.confirmPassword.$dirty">
+                <span ng-show="registerForm.confirmPassword.$error.required">Confirm Password is required.</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default">Register</button>
+    </form>
+</div>
